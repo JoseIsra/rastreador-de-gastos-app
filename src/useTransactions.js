@@ -9,8 +9,10 @@ export const useTransactions = (title) => {
     const transactionType = transactions?.filter(transaction => transaction.type === title);
     const subTotal = transactionType?.reduce((total, category) => total + category.amount,0);
     const categories = title === 'Income' ? incomeCategories : expenseCategories ;
+    let thing = JSON.parse(localStorage.getItem('transactions'));
 
-    console.log({transactions, subTotal})
+    console.log({transactions, subTotal,thing})
+    
     transactionType?.forEach((transactiontype)=> {
         const category = categories.find((c)=> c.type === transactiontype.category)
         if(category) category.amount += transactiontype.amount
