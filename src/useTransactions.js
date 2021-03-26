@@ -10,7 +10,7 @@ export const useTransactions = (title) => {
     const subTotal = transactionType?.reduce((total, category) => total + category.amount,0);
     const categories = title === 'Income' ? incomeCategories : expenseCategories ;
 
-    console.log({transactionType , subTotal , categories})
+    console.log({subTotal})
     transactionType?.forEach((transactiontype)=> {
         const category = categories.find((c)=> c.type === transactiontype.category)
         if(category) category.amount += transactiontype.amount
