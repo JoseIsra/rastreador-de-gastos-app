@@ -16,7 +16,8 @@ export const Main = () => {
             <CardContent>
                 <Typography  variant="subtitle1" >Tienes ${balance(transactions)}</Typography>
                 <Typography variant="subtitle2" >
-                    Agrega algo con Speechly
+                Try...Add income for (amount) dollars in 
+                category (something valid) for tomorrow
                 </Typography>
                 <Divider className={classes.divider}/>
                 <Form />
