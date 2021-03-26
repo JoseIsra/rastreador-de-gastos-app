@@ -16,8 +16,8 @@ export const Main = () => {
             <CardContent>
                 <Typography  variant="subtitle1" >Tienes ${balance(transactions)}</Typography>
                 <Typography variant="subtitle2" >
-                Try...Add income for (amount) dollars in 
-                category (something valid) for tomorrow
+                Try...Add income/expense for (amount) dollars in 
+                category (something valid) for (tomorrow|next(day of week))
                 </Typography>
                 <Divider className={classes.divider}/>
                 <Form />
