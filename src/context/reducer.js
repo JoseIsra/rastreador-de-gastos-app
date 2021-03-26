@@ -5,7 +5,7 @@ export const balance =(transactions)=>{
     return transactions?.reduce((total,actual)=> actual.type==='Expense'?total-actual.amount:total+actual.amount, 0)
 } 
 
-export const initialState = {transactions:JSON.parse(localStorage.getItem('transactions'))} || {transactions:[]}
+export const initialState = {transactions:[]}// {transactions:JSON.parse(localStorage.getItem('transactions'))} || {transactions:[]}
 
 
 const reducer =(state , action)=>{
