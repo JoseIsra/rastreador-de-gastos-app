@@ -1,18 +1,30 @@
 
-export const initialState = {
-    transactions:[  {id:1,type:"Income",category:"business",amount:100,date:"Mon Mar 22"},
-    { id:2,type:"Expense",category:"house",amount:100,date:"Mon Mar 23"},
-    {id:3,type:"Income",category:"marketing",amount:100,date:"Mon Mar 24"}]
-    
-}
+
+
+export const balance =(transactions)=>{
+    return transactions?.reduce((total,actual)=> actual.type==='Expense'?total-actual.amount:total+actual.amount, 0)
+} 
+
+export const initialState = {transactions:JSON.parse(localStorage.getItem('transactions'))} || {transactions:[]}
+
 
 const reducer =(state , action)=>{
     switch(action.type){
         case "DELETE_TRANSACTION": 
+        let thetransactions =state.transactions.filter(item => item.id!== action.payload)
+        localStorage.setItem('transactions',JSON.stringify(thetransactions))
         return {
             ...state,
-            transactions: state.transactions.filter(item => item.id!== action.payload)
+            transactions: thetransactions
         }
+
+        case "ADD_TRANSACTION":
+            let thetransaction = [...state.transactions, action.payload]
+            localStorage.setItem('transactions',JSON.stringify(thetransaction))
+            return {
+                ...state,
+                transactions:thetransaction
+            }
         default : return state
     }
 }   

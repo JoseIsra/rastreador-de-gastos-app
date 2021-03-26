@@ -26,5 +26,5 @@ export default makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(2),
         },
-    },
+    }
 }));
